@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Style from "./Suspend.module.css"
 import { suspendStaffProvider } from '../../pages/api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../PopupContext'
@@ -20,16 +20,21 @@ const Suspend_CC = () => {
 
     const { email, details } = suspendState
 
+
     const [{ status }] = details
     // console.log();
 
     console.log(email);
 
+    const [emailState, setEmail] = useState({
+        email: email
+    })
 
-
+    console.log(emailState);
+    
     const suspension = () => {
 
-        let body = email
+        let body = emailState
 
         suspendStaffProvider(body, updateSuspendStaff, updateLoadingPopup, updateErrorText, updateErrorPopup, updateSuspendStaffSuccess)
     }

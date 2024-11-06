@@ -75,10 +75,6 @@ const All_Users = () => {
 
                 <div id={Style.button_Div}>
 
-                    <Link to={"/freezedAccounts"}>
-                        <button id={Style.button}>Freezed Accounts</button>
-                    </Link>
-
                     <Link to={"/suspendedAccounts"}>
                         <button id={Style.accounts_btn}>Suspended Accounts</button>
 
@@ -90,7 +86,7 @@ const All_Users = () => {
                         <button onClick={() => transactionToggle(0)} className={toggleIndex == 0 ? Style.toggleDiv_buttonActive : Style.All_Users_listDiv_button}>All</button>
                         <button onClick={() => transactionToggle(1)} className={toggleIndex == 1 ? Style.toggleDiv_buttonActive : Style.All_Users_listDiv_button}>Subscribed</button>
                         <button onClick={() => transactionToggle(2)} className={toggleIndex == 2 ? Style.toggleDiv_buttonActive : Style.All_Users_listDiv_button}>Unsubscribed</button>
-                        <button onClick={() => transactionToggle(3)} className={toggleIndex == 3 ? Style.toggleDiv_buttonActive : Style.All_Users_listDiv_button}>Not-Subscribed</button>
+                        {/* <button onClick={() => transactionToggle(3)} className={toggleIndex == 3 ? Style.toggleDiv_buttonActive : Style.All_Users_listDiv_button}>Not-Subscribed</button> */}
                     </div>
 
                     <div id={Style.searchDiv}>
@@ -121,7 +117,8 @@ const All_Users = () => {
                                     status={object.status}
                                     name={object.username}
                                     position={object.country}
-                                    to={object.to} />
+                                    to={`/userDetails/${object.phone}`}
+                                    />
                             )
 
                         })
@@ -146,7 +143,8 @@ const All_Users = () => {
                                     status={object.status}
                                     name={object.username}
                                     position={object.country}
-                                    to={object.to} />
+                                    to={`/userDetails/${object.phone}`}
+                                     />
                             )
                         })
                     }
@@ -165,7 +163,8 @@ const All_Users = () => {
                                     status={object.status}
                                     name={object.username}
                                     position={object.country}
-                                    to={object.to} />
+                                    to={`/userDetails/${object.phone}`}
+                                    />
                             )
 
                         })

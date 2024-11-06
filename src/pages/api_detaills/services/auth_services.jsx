@@ -1,6 +1,8 @@
 import {
     login_url, getUsers, QuerySummary, getSuspendedAccounts, getFreezedAccounts,
-    addStaff, getAllStaff, getStaffDetails, customerSpportSummary, postSuspendStaff
+    addStaff, getAllStaff, getStaffDetails, customerSpportSummary, postSuspendStaff,
+    getUserDetails, suspendUser
+    
 } from "../constant/url_path"
 import axios from 'axios';
 import { setEmail, setToken, getToken } from '../constant/local_storage';
@@ -155,4 +157,26 @@ export const suspendStaffService = async (body) => {
 
     return response;
 };
+
+export const getUserDetailsService = async (phone) => {
+
+    const response = await axios.get(`${getUserDetails}/${phone}`);
+
+
+    console.log(response);
+    
+    return response;
+};
+
+
+export const suspendUserService = async (body) => {
+
+    const response = await axios.post(suspendUser, body);
+
+    console.log(response);
+    
+
+    return response;
+};
+
 

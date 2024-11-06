@@ -23,6 +23,7 @@ const Profile = () => {
     }
 
     const handleFile = (e) => {
+        
         const file = e.target.files[0]
         // convert the file to a string and assign
         // and append the name of the file you are working with to a URL

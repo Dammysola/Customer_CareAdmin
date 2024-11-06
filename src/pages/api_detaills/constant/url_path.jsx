@@ -7,5 +7,7 @@ export const QuerySummary = `${base_url}api/query-summary`;
 export const addStaff = `${base_url}api/add-staff`;
 export const getAllStaff = `${base_url}api/get-all-staffs`;
 export const getStaffDetails = `${base_url}api/get-staff-details`;
+export const getUserDetails = `${base_url}api/get-user-details`;
 export const customerSpportSummary = `${base_url}api/customer-support-summary`;
 export const postSuspendStaff = `${base_url}api/suspend-staff`;
+export const suspendUser = `${base_url}api/suspend-or-activate-user`;

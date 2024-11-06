@@ -7,7 +7,7 @@
    padding: 0rem 7.5rem;
 }
 #All_Users_toggleDiv{
-    width: 23.81rem;
+    width: 18rem;
     height: 3.06rem;
     display: flex;
     align-items: center;
@@ -76,7 +76,6 @@
 #button_Div{
     display: flex;
     justify-content: end;
-    column-gap: 1rem;
     position: relative;
     margin-top: -2rem;
 }
@@ -91,9 +90,6 @@
     color: #FFFFFF;
     padding: 0.5rem;
     box-sizing: border-box;
-}
-#button{
-    background-color: #FC9E2F;
 }
 #accounts_btn{
     background-color: #ED2F2F;

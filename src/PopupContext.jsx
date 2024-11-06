@@ -22,6 +22,12 @@ const PopupContext = ({ children }) => {
     email: '',
   })
 
+  const [phoneState, setPhoneState] = useState({
+    phone: "",
+    details: ""
+  })
+
+
   const updateSuspendState = (data) => {
     setSuspendState(data)
   }
@@ -30,6 +36,9 @@ const PopupContext = ({ children }) => {
     setnewStaffState(data)
   }
 
+  const updatePhoneState = (data)=>{
+    setPhoneState(data)
+  }
 
   const [signUpPopup, setSignUpPopup] = useState(false)
   const [passwordReset, setPasswordReset] = useState(false)
@@ -38,7 +47,8 @@ const PopupContext = ({ children }) => {
   const [errorPopup, setErrorPopup] = useState(false)
   const [suspendStaff, setSuspendStaff] = useState(false)
   const [suspendStaffSuccess, setSuspendStaffSuccess] = useState(false)
-
+  const [suspendUser, setSuspendUser] = useState(false)
+  const [suspendUserSuccess, setSuspendUserSuccess] = useState(false)
 
 
 
@@ -70,6 +80,14 @@ const PopupContext = ({ children }) => {
     setSuspendStaffSuccess(data)
   }
 
+  const updateSuspendUserPopup= (data) => {
+    setSuspendUser(data)
+  }
+
+  const updateSuspendUserSuccess= (data) => {
+    setSuspendUserSuccess(data)
+  }
+
 
 
   return (
@@ -91,7 +109,13 @@ const PopupContext = ({ children }) => {
       suspendState,
       updateSuspendState,
       suspendStaffSuccess,
-      updateSuspendStaffSuccess
+      updateSuspendStaffSuccess,
+      phoneState,
+      updatePhoneState,
+      suspendUser,
+      updateSuspendUserPopup,
+      suspendUserSuccess,
+      updateSuspendUserSuccess
 
     }}>
       {children}

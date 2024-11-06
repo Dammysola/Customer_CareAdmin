@@ -172,6 +172,20 @@ const Customer_Support = () => {
 
         }
 
+    //     <tr>
+    //     <td>John Doe</td>
+    //     <td className={Style.performing_agentText}>46</td>
+    //     <td className={Style.performing_agentText}>5</td>
+    //     <td className={Style.performing_agentText}>5</td>
+    //     <td><Link to={"/topAgent"}><Button text={"View Details"} /></Link></td>
+    // </tr>
+    ]
+
+    const performance_arr = [
+
+        {
+            // day
+        }
     ]
     return (
 

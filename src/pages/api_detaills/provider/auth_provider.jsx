@@ -1,7 +1,7 @@
 import {
     login_service, getAllUsersService, getQuerySummaryService, getSuspendedAccountsService,
     getFreezedAccountsService, addStaffService, getAllStaffService, getStaffDetailsService,
-    getCCSummaryService, suspendStaffService
+    getCCSummaryService, suspendStaffService, getUserDetailsService, suspendUserService
 } from "../services/auth_services"
 
 
@@ -334,9 +334,9 @@ export const suspendStaffProvider = async (body, updateSuspendStaff, updateLoadi
 
             updateSuspendStaff(false)
 
-            updateSuspendStaffSuccess(true) 
+            updateSuspendStaffSuccess(true)
 
-  
+
 
 
         } else {
@@ -349,14 +349,14 @@ export const suspendStaffProvider = async (body, updateSuspendStaff, updateLoadi
             setTimeout(() => {
                 updateErrorPopup(false)
             }, 2000)
-            
+
         }
 
     } catch (err) {
         updateLoadingPopup(false)
 
         console.log("What is going on na ");
-        
+
         updateErrorText("hello, show na");
 
         console.log("Error :", err);
@@ -367,6 +367,101 @@ export const suspendStaffProvider = async (body, updateSuspendStaff, updateLoadi
 
     }
 
+}
 
+
+
+export const getUserDetailsProvider = async ({ updateUserDetails, phone, updateErrorText, updateErrorPopup }) => {
+
+
+    try {
+
+        let response = await getUserDetailsService(phone)
+
+        if (response.status == 200 || response.status == 201) {
+
+            updateUserDetails(response.data["responseBody"])
+
+            console.log(response.data["responseBody"]);
+
+
+        } else {
+            // updateLoadingPopup(false);
+            updateErrorText(response.data["responseMessage"]);
+
+            console.log("Error :", err);
+
+            updateErrorPopup(true)
+            setTimeout(() => {
+                updateErrorPopup(false)
+            }, 2000)
+
+        }
+
+    } catch (error) {
+
+        updateErrorText(error.responseMessage)
+        console.log("Error :", error);
+        updateErrorPopup(true)
+        setTimeout(() => {
+            updateErrorPopup(false)
+        }, 2000)
+
+        console.log("Error :", error);
+
+    }
 
 }
+
+
+export const suspendUserProvider = async (body, updateLoadingPopup, updateSuspendSuccess, updateSuspendUserPopup, updateErrorPopup, updateErrorText) => {
+
+    try {
+
+        updateLoadingPopup(true);
+
+        const response = await suspendUserService(body);
+
+
+        if (response.status == 200 || response.status == 201) {
+
+            updateLoadingPopup(false);
+
+           
+            updateSuspendUserPopup(false) 
+            
+
+           
+
+            updateSuspendSuccess(true) 
+
+        } else {
+            // updateLoadingPopup(false);
+            updateErrorText(response.data["responseMessage"]);
+
+            console.log("Error :", err);
+
+            updateErrorPopup(true)
+            setTimeout(() => {
+                updateErrorPopup(false)
+            }, 2000)
+
+        }
+
+    } catch (err) {
+        updateLoadingPopup(false)
+
+        console.log("What is going on na ");
+
+        updateErrorText(err.response.data.responseMessage);
+
+        console.log("Error :", err);
+        updateErrorPopup(true)
+        setTimeout(() => {
+            updateErrorPopup(false)
+        }, 2000)
+
+    }
+
+}
+
