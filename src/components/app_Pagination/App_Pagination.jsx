@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 // import '../app_Pagination/App_Pagination.css'
-import Style from ".//App_Pagination.module.css"
+import Style from "./App_Pagination.module.css"
 import arrow_left from "../../assets/svg/arrow_up.svg"
 import arrow_right from "../../assets/svg/arrow_down2.svg"
+
 
 
 
@@ -11,6 +12,7 @@ const App_Pagination = ({ postsPerPage, totalPosts, paginate, currentPage: propC
   const [currentPage, setCurrentPage] = useState(propCurrentPage || 1);
   const totalPages = Math.ceil(totalPosts / postsPerPage);
 
+  
   useEffect(() => {
     setCurrentPage(propCurrentPage || 1);
   }, [propCurrentPage]);
