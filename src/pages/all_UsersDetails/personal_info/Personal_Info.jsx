@@ -17,7 +17,7 @@ import download from '../../../assets/svg/download_img.svg'
 import coin from '../../../assets/svg/coin.svg'
 import game_pad from '../../../assets/svg/game_pad.svg'
 import { PopupContextHook } from '../../../PopupContext'
-import App_Pagination from '../../../components/app_Pagination/App_Pagination'
+// import App_Pagination from '../../../components/app_Pagination/App_Pagination'
 import { getUserDetailsProvider } from '../../api_detaills/provider/user_provider'
 
 
@@ -81,8 +81,8 @@ const Personal_Info = () => {
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const coinPurchaseHistory = userDetails.coinPurchaseHistory.slice(indexOfFirstPost, indexOfLastPost);
-    const withdrawalHistory = userDetails.withdrawalHistory.slice(indexOfFirstPost, indexOfLastPost);
+    // const coinPurchaseHistory = userDetails.coinPurchaseHistory.slice(indexOfFirstPost, indexOfLastPost);
+    // const withdrawalHistory = userDetails.withdrawalHistory.slice(indexOfFirstPost, indexOfLastPost);
 
 
     // Function to handle pagination
@@ -475,9 +475,9 @@ const Personal_Info = () => {
 
                             <tbody>
                                 {
-                                    coinPurchaseHistory.map((obj, index) => {
+                                    userDetails.coinPurchaseHistory.map((obj, index) => {
 
-                                        const serialNumber = indexOfFirstPost + index + 1; // Calculate the correct serial number
+                                        // const serialNumber = indexOfFirstPost + index + 1; // Calculate the correct serial number
 
                                         let statusColor = obj.status === "success" ? "#31C364" : obj.status === "failed" ? "red" : obj.status === "pending" ? "#FC9E2F" : obj.status === "reversed" ? "#939393" : ""
                                         let statusBG = obj.status === "success" ? "#31c36433" : obj.status === "failed" ? "#ff000033" : obj.status === "pending" ? "#fc9e2f33" : obj.status === "reversed" ? "#93939333" : ""
@@ -485,7 +485,7 @@ const Personal_Info = () => {
                                         return (
 
                                             <tr key={index}>
-                                                <td>{serialNumber}</td>
+                                                <td>{index}</td>
                                                 <td>{obj.refNumber}</td>
                                                 <td>{obj.time}</td>
                                                 <td>{obj.country}</td>
@@ -528,7 +528,7 @@ const Personal_Info = () => {
                         </table>
                         {
 
-                            coinPurchaseHistory.length == 0 &&
+                            userDetails.coinPurchaseHistory.length == 0 &&
 
                             <div className={Style.no_queryDiv}>
 
@@ -538,12 +538,12 @@ const Personal_Info = () => {
 
                     </div>
 
-                    <App_Pagination
+                    {/* <App_Pagination
                         postsPerPage={postsPerPage}
                         totalPosts={userDetails.coinPurchaseHistory.length}
                         paginate={paginate}
                         currentPage={currentPage}
-                    />
+                    /> */}
 
                     <p className={Style.Personal_Info_headerText}>Withdrawal History</p>
 
@@ -578,9 +578,9 @@ const Personal_Info = () => {
                             <tbody>
 
                                 {
-                                    withdrawalHistory.map((obj, index) => {
+                                    userDetails.withdrawalHistory.map((obj, index) => {
 
-                                        const serialNumber = indexOfFirstPost + index + 1; // Calculate the correct serial number
+                                        // const serialNumber = indexOfFirstPost + index + 1; // Calculate the correct serial number
 
                                         let statusColor = obj.status === "success" ? "#31C364" : obj.status === "failed" ? "red" : obj.status === "pending" ? "#FC9E2F" : obj.status === "reversed" ? "#939393" : ""
                                         let statusBG = obj.status === "success" ? "#31c36433" : obj.status === "failed" ? "#ff000033" : obj.status === "pending" ? "#fc9e2f33" : obj.status === "reversed" ? "#93939333" : ""
@@ -589,7 +589,7 @@ const Personal_Info = () => {
                                         return (
 
                                             <tr key={index}>
-                                                <td>{serialNumber}</td>
+                                                <td>{index}</td>
                                                 <td>{obj.refNumber}</td>
                                                 <td>{obj.time}</td>
                                                 <td>{obj.country}</td>
@@ -632,12 +632,12 @@ const Personal_Info = () => {
                         }
                     </div>
 
-                    <App_Pagination
+                    {/* <App_Pagination
                         postsPerPage={postsPerPage}
                         totalPosts={userDetails.withdrawalHistory.length}
                         paginate={paginate}
                         currentPage={currentPage}
-                    />
+                    /> */}
 
 
                     <p className={Style.Personal_Info_headerText}>Subscription History</p>
