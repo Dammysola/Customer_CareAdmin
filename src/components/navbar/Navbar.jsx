@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Style from './NavBar.module.css'
+import Style from './Navbar.module.css'
 import mail from '../../assets/svg/staff_mail.svg'
 import person from '../../assets/svg/staff_person.svg'
 import arrow_down from '../../assets/svg/arrow_down.svg'
