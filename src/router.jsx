@@ -20,8 +20,9 @@ import InApp_Calls from './pages/queries/queries_categories/calls_queries/InApp_
 import Closed_Queries from './pages/queries/general_Queries/Closed_Queries'
 import InProgress_Queries from "./pages/queries/general_Queries/InProgress_Queries"
 import Escalated_Queries from './pages/queries/general_Queries/Escalated_Queries'
-import Freezed_Accounts from './pages/all_UsersDetails/all_users/accounts/Freezed_Accounts'
 import Suspended_Accounts from './pages/all_UsersDetails/all_users/accounts/Suspended_Accounts'
+
+
 
 
 
@@ -69,10 +70,7 @@ const router = createBrowserRouter([
             path: "/userDetails/:phoneNumber",
             element: <Personal_Info/>
         },
-        {
-            path: "/freezedAccounts",
-            element: <Freezed_Accounts/>
-        }, 
+ 
         {
             path: "/suspendedAccounts",
             element: <Suspended_Accounts/>

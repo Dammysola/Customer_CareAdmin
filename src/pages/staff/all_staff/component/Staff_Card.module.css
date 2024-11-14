@@ -17,7 +17,7 @@
     width: 7.5rem;
     height: 7.5rem;
     /* border: 1px solid #d6d3d3; */
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 #Staff_Card_WrapperDiv button{
     width: 6.93rem;
@@ -29,6 +29,7 @@
 }
 .Staff_Card_careRep{
     min-height: 0.5rem;
+    text-overflow: ellipsis;
     color: #000000;
 }
 .Staff_Card_nameText{

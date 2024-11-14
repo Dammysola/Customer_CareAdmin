@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Style from './Suspend_Reason.module.css'
 import Button from '../../components/button/Button'
-import { suspendUserProvider } from '../../pages/api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../PopupContext'
-// import { postSuspendProvider } from '../../pages/admin/api_detaills/provider/auth_provider'
+import { suspendUserProvider } from '../../pages/api_detaills/provider/user_provider'
 
 
 
@@ -14,18 +13,15 @@ const Suspend_Reason = () => {
     const { phoneState, updateLoadingPopup, updateErrorText, updateErrorPopup,
         updateSuspendUserPopup, updateSuspendUserSuccess } = PopupContextHook()
 
-    const {phone, details} = phoneState
+    const { phone, details } = phoneState
 
-    // console.log(phone);
-    
 
     const [suspend, setSuspend] = useState({
         phone: phone,
         reason: ""
     })
-     const [status] = details
-// console.log(suspend);
-console.log(status);
+    const [status] = details
+
 
     const Details = (e) => {
 
@@ -56,7 +52,7 @@ console.log(status);
 
         <div id={Style.suspend_reason_mainDiv}>
 
-{
+            {
                 status === "active" ?
 
                     <div id={Style.suspend_reason_container}>
@@ -75,15 +71,18 @@ console.log(status);
                             </div>
 
                             <Button text={"Suspend Account"} type={"submit"} />
+                       
                         </form>
 
                     </div> :
 
                     <div id={Style.Query_wrapperDiv}>
+
                         <p>Unsuspend this account?</p>
+
                         <div id={Style.btnDiv}>
                             <button type='submit' onClick={suspendFunc}>Yes</button>
-                            <button onClick={()=>updateSuspendUserPopup(false)}>Cancel</button>
+                            <button onClick={() => updateSuspendUserPopup(false)}>Cancel</button>
                         </div>
                     </div>
 

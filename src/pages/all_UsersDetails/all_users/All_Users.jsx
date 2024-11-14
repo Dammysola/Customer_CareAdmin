@@ -8,8 +8,8 @@ import black from '../../../assets/svg/black.svg'
 import InputField from '../../../components/input/InputField'
 import Header from '../../../components/header/Header'
 import { Link } from 'react-router-dom'
-import { getAllUsersProvider } from '../../api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../../PopupContext'
+import { getAllUsersProvider } from '../../api_detaills/provider/user_provider'
 
 
 
@@ -53,9 +53,7 @@ const All_Users = () => {
         });
     }, []);
 
-    // console.log(getAllUsersProvider);
 
-// console.log(users);
 
 
     // Destructure user arrays for easier access

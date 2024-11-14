@@ -7,7 +7,7 @@ import Button from '../../../../../components/button/Button'
 
 const Accounts_Card = (props) => {
 
-    const { img, online, position, name, status, to, BG, statusColor, verified, } = props
+    const { img, online, position, name, status, to, statusColor, verified } = props
 
 
     return (
@@ -15,10 +15,10 @@ const Accounts_Card = (props) => {
         <div id={Style.Staff_Card_mainDiv}>
 
             <div id={Style.Staff_Card_WrapperDiv}>
+                
                 <div id={Style.onboardedText}>
-                    <p style={{ backgroundColor: BG ? "#FC9E2F" : "#ED2F2F" }}>{status}</p>
+                    <p>{status}</p>
                 </div>
-
 
 
                 <div id={Style.Staff_Card_textDiv}>
@@ -28,7 +28,9 @@ const Accounts_Card = (props) => {
                         {verified && <img src={verified} alt="" />}
 
                     </div>
+
                     <img src={img} alt="" />
+
                     <div>
                         <p className={Style.Staff_Card_nameText}>{name}</p>
 
@@ -38,10 +40,12 @@ const Accounts_Card = (props) => {
 
                         <Link to={to}>
                             <Button
-                                text={"View More Details"} />
+                                text={"View More Details"}
+                            />
                         </Link>
 
                     </div>
+
                 </div>
             </div>
         </div >

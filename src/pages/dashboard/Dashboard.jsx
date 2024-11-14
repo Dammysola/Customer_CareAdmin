@@ -19,8 +19,8 @@ import mail from '../../assets/svg/mail.svg'
 import { Link } from 'react-router-dom'
 import Button from '../../components/button/Button'
 import Month_Picker from "../../components/month_picker/Month_Picker"
-import { getCCSummaryProvider } from '../api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../PopupContext'
+import { getCCSummaryProvider } from '../api_detaills/provider/staff_provider'
 
 
 
@@ -36,11 +36,15 @@ const Customer_Support = () => {
         offlineStaff: 0
     })
 
+
     // Fetch summary data on component mount
 
     useEffect(() => {
+
         getCCSummaryProvider({
+
             updateCCSummary: (data) => {
+
                 setSummary({
                     totalQueries: data.totalQueries || 0,
                     totalStaff: data.staff || 0,
@@ -49,7 +53,6 @@ const Customer_Support = () => {
                 });
 
             },
-            updateLoadingPopup,
             updateErrorText,
             updateErrorPopup
         });
@@ -72,6 +75,7 @@ const Customer_Support = () => {
 
 
     const [selectedMonth, setSelectedMonth] = useState(getCurrentMonth());
+
 
     // const [monthsIndex, setMonthsIndex] = useState(true);
     const [ShowMonths, setShowMonths] = useState(true);
@@ -172,37 +176,32 @@ const Customer_Support = () => {
 
         }
 
-    //     <tr>
-    //     <td>John Doe</td>
-    //     <td className={Style.performing_agentText}>46</td>
-    //     <td className={Style.performing_agentText}>5</td>
-    //     <td className={Style.performing_agentText}>5</td>
-    //     <td><Link to={"/topAgent"}><Button text={"View Details"} /></Link></td>
-    // </tr>
     ]
 
-    const performance_arr = [
 
-        {
-            // day
-        }
-    ]
+
     return (
+
 
         <div id={Style.Customer_Support_mainDiv}>
 
             <Header
                 headerText={"Welcome, Admin"}
-                headerInfo={"Here’s an overview of the customer care unit"} />
+                headerInfo={"Here’s an overview of the customer care unit"} 
+            />
+
 
             <div id={Style.Customer_Support_wrapperDiv}>
 
                 <p id={Style.Customer_SupportText}>Customer Support Summary</p>
 
                 <div id={Style.Customer_Support_mapDiv}>
+
                     {
                         stats_card5.map((obj, index) => {
+
                             return (
+                                
                                 <Total_Card
                                     key={index}
                                     text={obj.text}
@@ -288,7 +287,7 @@ const Customer_Support = () => {
                         </div>
 
                         <table>
-                           
+
                             <tbody>
                                 <tr>
                                     <td>Days</td>
@@ -348,7 +347,7 @@ const Customer_Support = () => {
                             </tbody>
 
                         </table>
-                    
+
                     </div>
 
 
@@ -413,7 +412,7 @@ const Customer_Support = () => {
                                 </div>
                                 <div id={Style.progressDiv}></div>
                             </div>
-                            
+
                         </div>
 
                     </div>

@@ -12,8 +12,8 @@ import search from '../../assets/svg/Search.svg'
 import InputField from '../../components/input/InputField'
 import filter_img from '../../assets/svg/Complete_filter_img.svg'
 import { Link } from 'react-router-dom'
-import { getQueriesProvider } from '../api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../PopupContext'
+import { getQueriesProvider } from '../api_detaills/provider/query_provider'
 
 
 
@@ -23,7 +23,7 @@ const Queries = () => {
 
 
     const [currentPage, setCurrentPage] = useState(1)
-    const [postsPerPage, setPostsPerPage] = useState(10)
+    const [postsPerPage] = useState(10)
     const [querySummary, setQuerySummary] = useState({
         totalQueries: 0,
         pendingQueries: 0,
@@ -35,7 +35,6 @@ const Queries = () => {
 
     useEffect(() => {
 
-        updateLoadingPopup(true)
         getQueriesProvider({
 
             updateQueries: (data) => {

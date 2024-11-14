@@ -12,9 +12,8 @@ import offline from '../../../assets/svg/stats_offline.svg'
 import users from '../../../assets/svg/gray_users.svg'
 import Stats_Card from '../../../components/stats_card/Stats_Card'
 import AddNew_Agent from '../addNew_Agent/AddNew_Agent'
-import { getAllStaffProvider } from '../../api_detaills/provider/auth_provider'
 import { PopupContextHook } from '../../../PopupContext'
-import { getEmail } from '../../api_detaills/constant/local_storage'
+import { getAllStaffProvider } from '../../api_detaills/provider/staff_provider'
 
 
 
@@ -33,10 +32,6 @@ const All_Staff = () => {
 
     useEffect(()=>{
 
-        // const caEmail = getEmail()
-
-        // let url = caEmail
-
         getAllStaffProvider({
             updateAllStaff: (data) =>{
                 setAllStaff({
@@ -52,8 +47,6 @@ const All_Staff = () => {
         })
 
     },[])
-
-    console.log(allStaff);
 
     const allStaff_arr = allStaff.staffs
     const onlineStaffsCount = allStaff.onlineStaff

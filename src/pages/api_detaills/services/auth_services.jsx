@@ -1,8 +1,6 @@
 import {
-    login_url, getUsers, QuerySummary, getSuspendedAccounts, getFreezedAccounts,
-    addStaff, getAllStaff, getStaffDetails, customerSpportSummary, postSuspendStaff,
-    getUserDetails, suspendUser
-    
+    login_url, postSuspendStaff
+
 } from "../constant/url_path"
 import axios from 'axios';
 import { setEmail, setToken, getToken } from '../constant/local_storage';
@@ -12,7 +10,6 @@ import { setEmail, setToken, getToken } from '../constant/local_storage';
 
 export const login_service = async (body) => {
 
-    console.log(`Login Initiated ${body}`)
 
     //This sends the body as a request to the api
 
@@ -50,7 +47,7 @@ export const login_service = async (body) => {
 };
 
 // Modify other service functions to include the token in the request header
-const authAxios = axios.create({
+export const authAxios = axios.create({
 
     headers: {
         Authorization: `Bearer ${getToken()}`
@@ -58,125 +55,15 @@ const authAxios = axios.create({
 });
 
 
-export const getAllUsersService = async () => {
-    console.log("Users Initiated")
+// export const suspendStaffService = async (body) => {
 
-    const response = await authAxios.get(getUsers);
+//     const response = await axios.post(postSuspendStaff, body);
 
-    return response;
-};
-
-export const getQuerySummaryService = async () => {
-    console.log("Player Initiated")
-
-    const response = await authAxios.get(QuerySummary);
-
-    if (response.status == 200) {
-
-       console.log(response.data);
-       
-
-    } 
-    return response;
-};
-
-export const getSuspendedAccountsService = async () => {
-
-    console.log("Suspended Accounts Initiated")
-
-    const response = await authAxios.get(getSuspendedAccounts);
-
-    if (response.status == 200) {
-
-        console.log('Success:', response.data);
-
-    }
-    return response;
-};
+//     console.log(response);
 
 
-export const getFreezedAccountsService = async () => {
+//     return response;
+// };
 
-    console.log("Freezed Accounts Initiated")
-
-    const response = await authAxios.get(getFreezedAccounts);
-
-    if (response.status == 200) {
-
-        console.log('Success:', response.data);
-    }
-
-    return response;
-};
-
-export const addStaffService = async (body) => {
-
-    console.log("Add New Agent Initiated")
-
-    const response = await authAxios.post(addStaff, body);
-
-    return response;
-};
-
-
-export const getAllStaffService = async () => {
-    console.log("All Staff Initiated")
-
-    const response = await authAxios.get(getAllStaff);
-
-    return response;
-};
-
-
-export const getStaffDetailsService = async (url) => {
-
-    console.log("Staff Details Initiated")
-
-    const response = await authAxios.get(`${getStaffDetails}/${url}`);
-
-    return response;
-};
-
-
-
-export const getCCSummaryService = async () => {
-
-    const response = await authAxios.get(customerSpportSummary);
-
-    console.log("CC Summary Initiated")
-
-    return response;
-};
-
-export const suspendStaffService = async (body) => {
-
-    const response = await axios.post(postSuspendStaff, body);
-
-    console.log(response);
-    
-
-    return response;
-};
-
-export const getUserDetailsService = async (phone) => {
-
-    const response = await axios.get(`${getUserDetails}/${phone}`);
-
-
-    console.log(response);
-    
-    return response;
-};
-
-
-export const suspendUserService = async (body) => {
-
-    const response = await axios.post(suspendUser, body);
-
-    console.log(response);
-    
-
-    return response;
-};
 
 

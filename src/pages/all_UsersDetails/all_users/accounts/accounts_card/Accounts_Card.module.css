@@ -71,6 +71,7 @@
     box-sizing: border-box;
     justify-content: center;
     color: #FFFFFF;
+    background-color: #ED2F2F;
     position: relative;
     margin-top: -0.1rem;
 }

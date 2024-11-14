@@ -3,7 +3,7 @@ import Input from '../../../components/SignUp_input/Input'
 import Style from './AddNew_Agent.module.css'
 import Button from '../../../components/button/Button'
 import { PopupContextHook } from '../../../PopupContext'
-import { addStaffProvider } from '../../api_detaills/provider/auth_provider'
+import { addStaffProvider } from '../../api_detaills/provider/staff_provider'
 
 
 const AddNew_Agent = () => {
@@ -31,7 +31,7 @@ const AddNew_Agent = () => {
 
     const [addStaff, setAddStaff] = useState({
 
-        fullName: "",
+        fullname: "",
         email: "",
         password: password
     })
@@ -67,7 +67,7 @@ const AddNew_Agent = () => {
         e.preventDefault()
 
         let emailVal = addStaff.email.includes("@") && addStaff.email.includes(".") ? false : true;
-        let fullNameVal = addStaff.fullName.length > 6 ? false : true;
+        let fullNameVal = addStaff.fullname.length > 6 ? false : true;
         let passwordVal = password.length > 5 ? false : true;
     
         setValidation({
@@ -84,7 +84,7 @@ const AddNew_Agent = () => {
           newStaff() 
 
            updateNewStaffState({
-            fullName: addStaff.fullName,
+            fullName: addStaff.fullname,
             email: addStaff.email,
             password: password
         })
@@ -96,8 +96,8 @@ const AddNew_Agent = () => {
 
 
     return (
-        <div id={Style.AddNew_Agent_mainDiv}>
 
+        <div id={Style.AddNew_Agent_mainDiv}>
 
             <div id={Style.AddNew_Agent_wrapperDiv}>
 
@@ -113,8 +113,8 @@ const AddNew_Agent = () => {
                                 label={"Full Name"}
                                 placeholder={"Type Full Name"}
                                 type="text"
-                                name="fullName"
-                                value={addStaff.fullName}
+                                name="fullname"
+                                value={addStaff.fullname}
                                 onChange={details}
                                 error={validation.fullName}
                             />

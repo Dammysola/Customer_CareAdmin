@@ -3,15 +3,14 @@ import Style from './Staff_Details.module.css'
 import CalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
 import Header from '../../../components/header/Header'
-import person from '../../../assets/images/Person1.png'
 import arrow_down from '../../../assets/svg/arrow_down-dark.svg'
 import rise from '../../../assets/svg/rise.svg'
 import users from '../../../assets/svg/users.svg'
 import './Staff_Details.css'
 import Stats_Card from '../../../components/stats_card/Stats_Card';
-import { getStaffDetailsProvider } from '../../api_detaills/provider/auth_provider';
 import { PopupContextHook } from '../../../PopupContext';
 import { useParams } from 'react-router-dom';
+import { getStaffDetailsProvider } from '../../api_detaills/provider/staff_provider';
 
 
 
@@ -21,7 +20,7 @@ const Staff_Details = () => {
     let { caEmail } = useParams()
 
 
-    const { updateLoadingPopup, updateErrorText, updateErrorPopup, updateSuspendStaff, updateSuspendState } = PopupContextHook()
+    const { updateErrorText, updateErrorPopup, updateSuspendStaff, updateSuspendState } = PopupContextHook()
 
 
  
@@ -46,16 +45,10 @@ const Staff_Details = () => {
             },
             url,
             updateErrorText,
-            updateErrorPopup,
-            updateLoadingPopup,
-
+            updateErrorPopup
         })
 
     }, [])
-
-    // const [{status}] = staffDetails
-
-    // console.log(status)
 
    const suspend = () => {
 
@@ -86,7 +79,9 @@ const Staff_Details = () => {
 
 
     const today = new Date();
+
     const getRange = (startDate, endDate) => {
+
         const date = new Date(startDate.getTime());
         const dates = [];
 
@@ -117,7 +112,9 @@ const Staff_Details = () => {
 
 
     return (
+
         <div id={Style.Staff_Details_mainDiv}>
+
             <Header
                 headerText={"All Staff"}
                 headerInfo={"Here’s an overview of all Staff"} />
@@ -144,6 +141,7 @@ const Staff_Details = () => {
                         </thead>
 
                         <tbody>
+
                             {
                                 staffDetails.map((obj, index) => {
 
@@ -152,6 +150,7 @@ const Staff_Details = () => {
                                     return (
 
                                         <tr key={index}>
+
                                             <td><img src={obj.photo} alt="" /></td>
                                             <td>{obj.fullname}</td>
                                             <td>{obj.email}</td>

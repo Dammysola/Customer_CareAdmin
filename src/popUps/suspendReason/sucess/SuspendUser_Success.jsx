@@ -20,10 +20,8 @@ const SuspendUser_Success = () => {
 
     // const { email, details } = suspendState
 
-    const  status  = details
-    // console.log();
+    const status = details
 
-    console.log(status);
 
 
 
@@ -37,6 +35,7 @@ const SuspendUser_Success = () => {
 
                 {
                     status === "active" ?
+
                         <p>Account Suspended</p> :
                         <p>Account Succesfully Unsuspended</p>
 

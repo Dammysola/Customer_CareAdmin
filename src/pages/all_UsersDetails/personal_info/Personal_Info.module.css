@@ -119,11 +119,11 @@
 }
 
 #Personal_Info_buttonDiv button {
-    width: 8.5rem;
+    width: 9rem;
     height: 2.3rem;
     border-radius: 0.5rem;
     border: none;
-    font-size: 0.9rem;
+    font-size: 0.81rem;
     color: #FFFFFF;
     background-color: #FC9E2F;
 }
@@ -203,7 +203,7 @@ td {
 
 #Personal_Info_tableDiv #statusText {
     min-width: 2rem;
-    max-width: 4.5rem;
+    max-width: 5.1rem;
     height: 26px;
     display: flex;
     justify-content: center;
