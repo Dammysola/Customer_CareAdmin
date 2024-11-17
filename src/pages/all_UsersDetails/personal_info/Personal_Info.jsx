@@ -64,8 +64,8 @@ const Personal_Info = () => {
                 })
             },
             phone,
-            updateErrorPopup,
-            updateErrorText
+            updateErrorText,
+            updateErrorPopup
         })
     }, [])
 

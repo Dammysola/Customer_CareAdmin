@@ -24,7 +24,7 @@ export const getQueriesProvider = async ({ updateQueries, updateErrorPopup, upda
 
     } catch (err) {
 
-        updateErrorText(err.response.data.responseMessage || "Error fetching users");
+        updateErrorText(err.response ? err.response.data.responseMessage : "Error fetching users");
 
         updateErrorPopup(true)
 
